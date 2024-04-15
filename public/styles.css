@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Gamja Flower', sans-serif;
+}
+
+.content {
+  position: absolute;
+}
+.header {
+  background-color: rgb(31, 197, 197);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  color: white;
+  font-family: 'McLaren';
+  font-weight: 200;
+}
+
+.todo-place {
+  position: relative;
+  width: 480px;
+  margin: 30px;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 40px 100px;
+  box-shadow: 1px 1px 6px rgb(31, 197, 197);
+  margin-top: 100px;
+}
+
+.todo-place input,
+.todo-place textarea {
+  width: 100%;
+  padding: 4px;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.todo-place button {
+  width: 36px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: -10px;
+  border: none;
+  background-color: rgb(31, 197, 197);
+  z-index: 1;
+}
+
+.note-info {
+  background-color: rgb(31, 197, 197);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Gamja Flower', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.list-notes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-content {
+  word-break: break-all;
+}
