@@ -1,11 +1,11 @@
 import React from 'react';
-import HighlightIcon from '@mui/icons-material/Highlight';
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 
 const Header = () => {
   return (
     <div className="header">
       <h1>
-        <HighlightIcon fill="black" />
+        <PlaylistAddCheckIcon className="header-icon" htmlColor="#fff" fontSize="large" />
         Todo List
       </h1>
     </div>

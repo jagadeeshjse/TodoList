@@ -1,0 +1,264 @@
+/* App styles - modern teal theme */
+:root {
+  --teal: #12b8b3;
+  --teal-dark: #0ea4a0;
+  --bg: #f8fbfb;
+  --card: #ffffff;
+  --muted: #666;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: #111;
+}
+
+.header {
+  background: var(--teal);
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header h1 {
+  font-weight: 600;
+  margin: 0;
+  font-size: 28px;
+}
+
+.content {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 20px 48px;
+  box-sizing: border-box;
+}
+
+.todo-place {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.08);
+  border: 2px solid rgba(16, 185, 129, 0.06);
+  position: relative;
+  overflow: visible;
+  max-width: 100%;
+}
+.todo-place input[type='text'] {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+}
+.todo-place textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  font-size: 14px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #fcfffe;
+}
+
+/* Actions flow inside the form now */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px; /* increased gap so buttons don't collide */
+  margin-top: 12px;
+  padding-top: 6px; /* extra space from form content */
+  flex-wrap: wrap; /* allow wrapping on very small screens */
+}
+.add-btn {
+  background: var(--teal) !important;
+  color: #fff !important;
+  z-index: 5;
+  box-shadow: 0 8px 18px rgba(16, 185, 129, 0.18);
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px; /* small buffer to ensure separation */
+}
+.cancel-btn {
+  background: #ffffff;
+  color: var(--teal-dark);
+  border: 1px solid rgba(14, 164, 160, 0.08);
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 6px 14px rgba(14, 164, 160, 0.05);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Notes grid: responsive columns */
+.list-notes {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  /* Ensure flex-wrap compatibility for older layouts */
+}
+
+/* Card layout */
+.note-card {
+  background: linear-gradient(180deg, var(--card), #f7fefc);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(14, 164, 160, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 86px;
+}
+.note-body {
+  max-width: 78%;
+}
+.note-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: var(--teal-dark);
+}
+.note-content {
+  margin: 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+.note-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Hover states */
+.add-btn:hover {
+  transform: translateY(-2px);
+}
+.cancel-btn:hover {
+  transform: translateY(-2px);
+}
+.note-card:hover {
+  transform: translateY(-3px);
+  transition: transform 0.18s ease;
+}
+
+/* Public/styles.css compatibility rules merged here */
+/* Ensure header uses same teal and fixed positioning if desired */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* legacy .note-info + .title-content support */
+.note-info {
+  /* keep modern card look using existing .note-card rules */
+  box-shadow: none;
+  background: transparent;
+}
+.title-content {
+  word-break: break-all;
+}
+
+/* Remove use of public .todo-place absolute widths to keep responsive */
+.todo-place {
+  max-width: 100%;
+}
+
+/* Large tablets */
+@media (max-width: 1100px) {
+  .list-notes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets and small laptops */
+@media (max-width: 800px) {
+  .content {
+    padding: 0 18px 36px;
+  }
+  .todo-place {
+    padding: 16px;
+  }
+  .list-notes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .note-body {
+    max-width: 72%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+  .content {
+    margin: 16px auto;
+    padding: 0 12px 28px;
+  }
+  .todo-place {
+    padding: 12px;
+  }
+  .todo-place textarea {
+    min-height: 72px;
+  }
+  .form-actions {
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  .add-btn {
+    min-width: 36px;
+    min-height: 36px;
+  }
+  .list-notes {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .note-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+  }
+  .note-body {
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+  .note-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+/* Very small phones: allow wrapping and stacked controls */
+@media (max-width: 360px) {
+  .form-actions {
+    justify-content: center;
+    gap: 8px;
+  }
+  .add-btn {
+    transform: scale(0.95);
+  }
+  .cancel-btn {
+    padding: 6px 10px;
+  }
+}
